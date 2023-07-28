@@ -51,7 +51,7 @@ Background processes ( add & at the end of command)
 ### Signals
 
 
-| Signal      |                         | explanation   |
+| Signal      |          signal               | explanation   |
 | :---        |            :----:              | :---  |
 | 1  | SIGHUP                           | If a process is being run from a terminal and that terminal itself is closed/terminated then the process receives this signal and consequently terminates.   |
 | 2  | SIGINT                           | It politely tells the program to terminate. Performs the same function as Ctrl+C. It’s up to the process whether it will listen to it or not.   |
