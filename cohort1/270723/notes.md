@@ -27,17 +27,12 @@
 * bmon
 * nmap
 * vnstat
-
-https://itsfoss.com/basic-linux-networking-commands/
-https://mindmajix.com/linux-networking-commands-best-examples
+# References
+1. https://itsfoss.com/basic-linux-networking-commands/
+2. https://mindmajix.com/linux-networking-commands-best-examples
 
 
 ### System Processes
-
-https://phoenixnap.com/kb/list-processes-linux
-https://www.geeksforgeeks.org/processes-in-linuxunix/
-https://www.geeksforgeeks.org/shell-scripting-how-to-send-signal-to-a-processes/
-
 * top
 * htop
 * ps
@@ -45,13 +40,19 @@ https://www.geeksforgeeks.org/shell-scripting-how-to-send-signal-to-a-processes/
 * kilall
 * nice
 
-Foreground processes
+Foreground processes.
 Background processes ( add & at the end of command)
+
+# References
+1. https://phoenixnap.com/kb/list-processes-linux
+2. https://www.geeksforgeeks.org/processes-in-linuxunix/
+3. https://www.geeksforgeeks.org/shell-scripting-how-to-send-signal-to-a-processes/
+
+
 
 ### Signals
 
-
-| Signal      |          signal               | explanation   |
+| Signal      |          signal name              | explanation   |
 | :---        |            :----:              | :---  |
 | 1  | SIGHUP                           | If a process is being run from a terminal and that terminal itself is closed/terminated then the process receives this signal and consequently terminates.   |
 | 2  | SIGINT                           | It politely tells the program to terminate. Performs the same function as Ctrl+C. It’s up to the process whether it will listen to it or not.   |
@@ -62,19 +63,14 @@ Background processes ( add & at the end of command)
 | 20  | SIGTSTP                                   | 	It is similar to SIGSTOP but the process receiving this signal is under no obligation to listen to it. The process may choose to ignore it.   |
 
 	 
-		
-
+	
 
 ### What is a service?
 
-A service is a process or application which is running in the background, either doing some predefined task 
-or waiting for some event.
+A service is a process or application which is running in the background, either doing some predefined task or waiting for some event.
+/etc/systemd/system/ directory and must have an .service extension. For example, a custom test-app service uses /etc/systemd/system/test-app.service unit file.
 
-/etc/systemd/system/ directory and must have an .service extension. For example, a custom test-app service uses 
-/etc/systemd/system/test-app.service unit file.
-
-A unit file is a plain text ini-style file that usually includes three common sections. 
-The first section is usually the Unit section which carries generic information about the unit that is not dependent on the type of unit.
+A unit file is a plain text ini-style file that usually includes three common sections. The first section is usually the Unit section which carries generic information about the unit that is not dependent on the type of unit.
 
 The next section is the unit type section, for a service, it is a Service section. 
 And the final section is the Install section which carries installation information for the unit.
@@ -101,15 +97,15 @@ RestartSec=5
 WantedBy=multi-user.target
 ```
 
-Description – is used to specify a description for the service.
-After – defines a relationship with a second unit, the network.target. In this case, the test-app.service is activated after the network.target unit.
-User – is used to specifying the user with whose permissions the service will run.
-Group – is used to specify the group with whose permissions the service will run.
-WorkingDirectory – is used to set the working directory for executed processes.
-Environment – is used to set environment variables for executed processes.
-ExecStart – is used to define the commands with their arguments that are executed when this service is started.
-ExecReload – is used to define the commands to execute to trigger a configuration reload in the service.
-WantedBy – enables a symbolic link to be created in the .wants/ or .requires/ directory of each of the listed unit(s), multi-user.target in this case, when the test-app.service unit is enabled using the systemctl enable command.
+* Description – is used to specify a description for the service.
+* After – defines a relationship with a second unit, the network.target. In this case, the test-app.service is activated after the network.target unit.
+* User – is used to specifying the user with whose permissions the service will run.
+* Group – is used to specify the group with whose permissions the service will run.
+* WorkingDirectory – is used to set the working directory for executed processes.
+* Environment – is used to set environment variables for executed processes.
+* ExecStart – is used to define the commands with their arguments that are executed when this service is started.
+* ExecReload – is used to define the commands to execute to trigger a configuration reload in the service.
+* WantedBy – enables a symbolic link to be created in the .wants/ or .requires/ directory of each of the listed unit(s), multi-user.target in this case, when the test-app.service unit is enabled using the systemctl enable command.
 
 
 systemctl daemon-reload command
@@ -140,10 +136,9 @@ many have criticized it for violating the Unix philosophy, which emphasizes simp
 To better understand what is meant by an initialization system, this section provides a high-level overview of the Linux boot process.
 Linux requires an initialization system during its boot and startup process. At the end of the boot process, the Linux kernel loads systemd and passes control over to it and the startup process begins. During this step, the kernel initializes the first user space process, the systemd init process with process ID 1, and then goes idle unless called again. systemd prepares the user space and brings the Linux host into an operational state by starting all other processes on the system.
 
-
-The /usr/lib/systemd/user/ directory is the default location where unit files are installed by packages. Unit files in the default directory should not be altered.
-The /run/systemd/system/ directory is the runtime location for unit files.
-The /etc/systemd/system/ directory stores unit files that extend a service. This directory will take precedence over unit files located anywhere else in the system.
+* The /usr/lib/systemd/user/ directory is the default location where unit files are installed by packages. Unit files in the default directory should not be altered.
+* The /run/systemd/system/ directory is the runtime location for unit files.
+* The /etc/systemd/system/ directory stores unit files that extend a service. This directory will take precedence over unit files located anywhere else in the system.
 
 
 ### Linux Boot Process
@@ -188,13 +183,13 @@ For example, you might catch starting sendmail …. OK.
 These are known as runlevel programs, and are executed from different directories depending on your run level. 
 Each of the 6 runlevels described above has its own directory:
 
-Run level 0 – /etc/rc0.d/
-Run level 1 – /etc/rc1.d/
-Run level 2 – /etc/rc2.d/
-Run level 3 – /etc/rc3.d/
-Run level 4 – /etc/rc4.d/
-Run level 5 – /etc/rc5.d/
-Run level 6 – /etc/rc6.d/
+* Run level 0 – /etc/rc0.d/
+* Run level 1 – /etc/rc1.d/
+* Run level 2 – /etc/rc2.d/
+* Run level 3 – /etc/rc3.d/
+* Run level 4 – /etc/rc4.d/
+* Run level 5 – /etc/rc5.d/
+* Run level 6 – /etc/rc6.d/
 Note that the exact location of these directories varies from distribution to distribution.
 
 If you look in the different run level directories, you'll find programs that start with either an "S" or "K" for startup and kill, 
@@ -268,13 +263,9 @@ run level 4: user-definable
 run level 5: establish a graphical multi-user interface with network services
 run level 6: restart the machine
 
-======================================================================================================================
-
-Job Scheduling on Linux (cron jobs)
-------------------------------------
+# Job Scheduling on Linux (cron jobs)
 
 Everyday at 2pm run a command - delete all files older than 12 hours
-
 
 Job scheduling applications are designed to carry out repetitive tasks as defined in a schedule based on time and event conditions. 
 In this article you will learn how to install and start using Cron - the most popular Linux workload automation tool that is widely 
@@ -285,22 +276,13 @@ Cron is a Linux job scheduler that is used to setup tasks to run periodically at
 Cron jobs are specific commands or shell scripts that users define in the crontab files. These files are then monitored by the 
 Cron daemon and jobs are executed on a pre-set schedule.
 
-
-Install Cron
-Most often Cron is installed to your Ubuntu machine by default. In case it is not there, you may install it yourself.
-
-Update your system’s local package list:
-
-sudo apt update
-
-And install the newest version of cron. The following command also updates Cron to the latest version, if you already have it installed:
-
-sudo apt install cron
-
-Congrats! You now have the latest version of Cron installed on your machine.
-
-
-Understand How Cron Works
+# Structure of cron entry
+```
+[minute] [hour] [day of month] [month] [day of week] [command]
+* * * * * echo “Hello World at $(date)” >> $HOME/greetings.txt
+ ```
+         
+# Understand How Cron Works
 Cron jobs are commands or shell scripts that are referenced in crontab files. These files are loaded into memory and monitored for pre-set 
 actions that need to be taken. Cron wakes up every minute to examine all stored crontabs and see if any command needs to be executed in the 
 current minute.
@@ -308,19 +290,14 @@ current minute.
 Additionally, Cron monitors the modification time of each crontab file on the system. If any crontab has been changed, it is automatically 
 reloaded into memory. This way Cron doesn’t need to be restarted when a crontab modification is made.
 
-Manage User-owned Crontab Files
+# Manage User-owned Crontab Files
 --------------------------------
 Users have their own crontab files that are stored in the spool area and named after the user’s account. Each crontab is executed as the user 
 who owns the crontab. You can check for user-owned crontab files by listing all files in the spool directory:
 
 ls /var/spool/cron/crontabs
 
-user1
-user2
-
-
-
-Manage System-wide Crontab Files (root)
+# Manage System-wide Crontab Files (root)
 ---------------------------------
 System-wide crontab files are created upon cron installation and mainly used by system services. 
 Packages like dpkg, sysstat and many others depend on cron and use it to schedule specific tasks. 
@@ -328,64 +305,19 @@ In a system’s crontab there is a user field that is used to execute given task
 System crontabs must be owned by root and cannot be edited by any other user. There is no crontab command to edit these files, 
 so they can be accessed directly by the system administrator. Let’s now access the main system crontab:
 
-sudo vim /etc/crontab
-
-
-# /etc/crontab: system-wide crontab
-# Unlike any other crontab you don't have to run the `crontab'
-# command to install the new version when you edit this file
-# and files in /etc/cron.d. These files also have username fields,
-# that none of the other crontabs do.
-
-SHELL=/bin/sh
-# You can also override PATH, but by default, newer versions inherit it from the environment
-#PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
-
-# Example of job definition:
-# .---------------- minute (0 - 59)
-# |  .------------- hour (0 - 23)
-# |  |  .---------- day of month (1 - 31)
-# |  |  |  .------- month (1 - 12) OR jan,feb,mar,apr ...
-# |  |  |  |  .---- day of week (0 - 6) (Sunday=0 or 7) OR sun,mon,tue,wed,thu,fri,sat
-# |  |  |  |  |
-# *  *  *  *  * user-name command to be executed
-17 *    * * *   root    cd / && run-parts --report /etc/cron.hourly
-25 6    * * *   root    test -x /usr/sbin/anacron || ( cd / && run-parts --report /etc/cron.daily )
-47 6    * * 7   root    test -x /usr/sbin/anacron || ( cd / && run-parts --report /etc/cron.weekly )
-
-
-https://crontab.guru/
-
-[minute] [hour] [day of month] [month] [day of week] [command]
-* * * * * echo “Hello World at $(date)” >> $HOME/greetings.txt
+# Reference
+1. https://crontab.guru/
+2. https://devblogs.microsoft.com/commandline/systemd-support-is-now-available-in-wsl/
+3. https://beebom.com/how-enable-systemd-wsl-windows-11/
+4. https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/system_administrators_guide/chap-managing_services_with_systemd
+5. https://linuxconcept.com/linux-boot-process-step-by-step-explained/
+6. https://www.freecodecamp.org/news/the-linux-booting-process-6-steps-described-in-detail/
+7. https://www.linode.com/docs/guides/what-is-systemd/
+8. https://www.linode.com/docs/guides/introduction-to-systemctl/
 
 
 
-
-https://devblogs.microsoft.com/commandline/systemd-support-is-now-available-in-wsl/
-https://beebom.com/how-enable-systemd-wsl-windows-11/
-https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/system_administrators_guide/chap-managing_services_with_systemd
-https://linuxconcept.com/linux-boot-process-step-by-step-explained/
-https://www.freecodecamp.org/news/the-linux-booting-process-6-steps-described-in-detail/
-https://www.linode.com/docs/guides/what-is-systemd/
-https://www.linode.com/docs/guides/introduction-to-systemctl/
-
-==================================================================================================================
-
-
-Architecting for resilience and high availability web traffic (Solution Architect)
-----------------------------------------------------------------------------------
-https://aws.amazon.com/blogs/architecture/lets-architect-creating-resilient-architecture/
-https://www.youtube.com/watch?v=KLxwhsJuZ44
-https://www.youtube.com/watch?v=62ZQHTruBnk
-https://www.youtube.com/watch?v=CDX7oQkuf3A
-https://www.youtube.com/watch?v=pbXEH96zhUg
-
-https://aws.amazon.com/resilience-hub/
-RTO
-RPO
-
-
+### Architecting for resilience and high availability web traffic (Solution Architect)
 
 Resilience - robustness
 Plenty capacity  - CloudFront (DDOS)
@@ -402,21 +334,20 @@ High availability -  (HA)
 
 EC2 = ALB + ASG + EC2
 
-===================================================================================================================
-===================================================================================================================
-
-Deployment Strategies  (Solution Architect - DevOps Engineer)
-
-https://docs.aws.amazon.com/whitepapers/latest/overview-deployment-options/deployment-strategies.html
-https://docs.aws.amazon.com/whitepapers/latest/overview-deployment-options/welcome.html?did=wp_card&trk=wp_card
-
-Managing deployments (A/B, canary, Blue/Green), Mutable/Immutable
-https://docs.aws.amazon.com/whitepapers/latest/overview-deployment-options/deployment-strategies.html
+# References
+1. https://aws.amazon.com/blogs/architecture/lets-architect-creating-resilient-architecture/
+2. https://www.youtube.com/watch?v=KLxwhsJuZ44
+3. https://www.youtube.com/watch?v=62ZQHTruBnk
+4. https://www.youtube.com/watch?v=CDX7oQkuf3A
+5. https://www.youtube.com/watch?v=pbXEH96zhUg
+6. https://aws.amazon.com/resilience-hub/
 
 
-Blue/Green - https://d1.awsstatic.com/whitepapers/AWS_Blue_Green_Deployments.pdf
+## Deployment Strategies  Managing deployments (A/B, canary, Blue/Green), Mutable/Immutable (Solution Architect - DevOps Engineer)
 
-Canary deployment
+1. Blue/Green - 
+
+2. Canary deployment
 The purpose of a canary deployment is to reduce the risk of deploying a new version that impacts the workload. 
 The method will incrementally deploy the new version, making it visible to new users in a slow fashion. 
 As you gain confidence in the deployment, you will deploy it to replace the current version in its entirety.
@@ -427,8 +358,11 @@ Use a dimension on your KPIs to indicate which version is reporting the metrics.
 Use the metric to measure the success of the deployment; this indicates whether the deployment should continue or roll back.
 Increase the load on the new version until either all users are on the new version or you have fully rolled back.
 
+3. A/B Testing
 
-https://martinfowler.com/bliki/CanaryRelease.html?ref=wellarchitected
-
-
-A/B, https://vwo.com/ab-testing/
+# References
+1. https://d1.awsstatic.com/whitepapers/AWS_Blue_Green_Deployments.pdf
+2. https://docs.aws.amazon.com/whitepapers/latest/overview-deployment-options/deployment-strategies.html
+3. https://docs.aws.amazon.com/whitepapers/latest/overview-deployment-options/deployment-strategies.html
+4. https://docs.aws.amazon.com/whitepapers/latest/overview-deployment-options/welcome.html?did=wp_card&trk=wp_card
+5. https://martinfowler.com/bliki/CanaryRelease.html?ref=wellarchitected
