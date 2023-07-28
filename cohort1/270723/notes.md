@@ -1,54 +1,54 @@
-Network Commands
-----------------
-curl 
-wget
-ifconfig 
-ip
-traceroute
-tracepath
-ping
-telnet
-netstat
-ssh
-iperf
-ss
-dig
-nslookup
-route
-host
-arp
-iwconfig
-hostname
-mtr
-whois
-ifplugstatus
-iftop
-tcpdump
-bmon
-nmap
-vnstat
+### Network Commands
+
+* curl 
+* wget
+* ifconfig 
+* ip
+* traceroute
+* tracepath
+* ping
+* telnet
+* netstat
+* ssh
+* iperf
+* ss
+* dig
+* nslookup
+* route
+* host
+* arp
+* iwconfig
+* hostname
+* mtr
+* whois
+* ifplugstatus
+* iftop
+* tcpdump
+* bmon
+* nmap
+* vnstat
 
 https://itsfoss.com/basic-linux-networking-commands/
 https://mindmajix.com/linux-networking-commands-best-examples
 
 
-System Processes
-================
+### System Processes
+
 https://phoenixnap.com/kb/list-processes-linux
 https://www.geeksforgeeks.org/processes-in-linuxunix/
 https://www.geeksforgeeks.org/shell-scripting-how-to-send-signal-to-a-processes/
 
-top
-htop
-ps
-kill
-kilall
-nice
+* top
+* htop
+* ps
+* kill
+* kilall
+* nice
 
 Foreground processes
 Background processes ( add & at the end of command)
 
-
+### Signals
 1	SIGHUP  If a process is being run from a terminal and that terminal itself is closed/terminated then the process receives this signal and consequently terminates.
 2	SIGINT	It politely tells the program to terminate. Performs the same function as Ctrl+C. It’s up to the process whether it will listen to it or not.
 9	SIGKILL	Unlike other signals, the SIGKILL signal is never sent to the process. Instead, the terminal immediately kills the program and the program doesn’t get the time to save its data or clean up its work. Only use this as a last resort.
@@ -71,13 +71,12 @@ free	Gives free RAM on your system
 
 
 
-What is a service?
------------------
+### What is a service?
+
 A service is a process or application which is running in the background, either doing some predefined task 
 or waiting for some event.
 
-
-etc/systemd/system/ directory and must have an .service extension. For example, a custom test-app service uses 
+/etc/systemd/system/ directory and must have an .service extension. For example, a custom test-app service uses 
 /etc/systemd/system/test-app.service unit file.
 
 A unit file is a plain text ini-style file that usually includes three common sections. 
@@ -85,8 +84,6 @@ The first section is usually the Unit section which carries generic information 
 
 The next section is the unit type section, for a service, it is a Service section. 
 And the final section is the Install section which carries installation information for the unit.
-
-
 
 The following configuration is used to define a service for running a Flask application using Gunicorn, a Python WSGI HTTP Server for UNIX.
 
@@ -155,8 +152,7 @@ The /run/systemd/system/ directory is the runtime location for unit files.
 The /etc/systemd/system/ directory stores unit files that extend a service. This directory will take precedence over unit files located anywhere else in the system.
 
 
-Linux Boot Process
-==================
+### Linux Boot Process
 
 1. BIOS
 BIOS stands for Basic Input/Output System. In simple terms, the BIOS loads and executes the Master Boot Record (MBR) boot loader.
