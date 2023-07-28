@@ -49,26 +49,20 @@ Foreground processes
 Background processes ( add & at the end of command)
 
 ### Signals
-1)	SIGHUP  If a process is being run from a terminal and that terminal itself is closed/terminated then the process receives this signal and consequently terminates.
-2)	SIGINT	It politely tells the program to terminate. Performs the same function as Ctrl+C. It’s up to the process whether it will listen to it or not.
-9	SIGKILL	Unlike other signals, the SIGKILL signal is never sent to the process. Instead, the terminal immediately kills the program and the program doesn’t get the time to save its data or clean up its work. Only use this as a last resort.
-15	SIGTERM This is the default signal of the kill command
-18	SIGCONT	This will restore a process that was paused by a SIGSTOP or SIGTSTP signal
-19	SIGSTOP	This signal pauses/freezes the process. The process cannot choose to ignore it.
-20	SIGTSTP	It is similar to SIGSTOP but the process receiving this signal is under no obligation to listen to it. The process may choose to ignore it.
 
-bg	To send a process to the background
-fg	To run a stopped process in the foreground
-top	Details on all Active Processes
-ps	Give the status of processes running for a user
-ps PID	Gives the status of a particular process
-pidof	Gives the Process ID (PID) of a process
-kill PID	Kills a process
-nice	Starts a process with a given priority
-renice	Changes priority of an already running process
-df	Gives free hard disk space on your system
-free	Gives free RAM on your system
 
+| Signal      |                         | explanation   |
+| :---        |            :----:              | :---  |
+| 1  | SIGHUP                           | If a process is being run from a terminal and that terminal itself is closed/terminated then the process receives this signal and consequently terminates.   |
+| 2  | SIGINT                           | It politely tells the program to terminate. Performs the same function as Ctrl+C. It’s up to the process whether it will listen to it or not.   |
+| 9  | SIGKILL                         | Unlike other signals, the SIGKILL signal is never sent to the process. Instead, the terminal immediately kills the program and the program doesn’t get the time to save its data or clean up its work. Only use this as a last resort.   |
+| 15  | SIGTERM                                     | This is the default signal of the kill command   |
+| 18  | SIGCONT                              | This will restore a process that was paused by a SIGSTOP or SIGTSTP signal   |
+| 19  | SIGSTOP                               | This signal pauses/freezes the process. The process cannot choose to ignore it.   |
+| 20  | SIGTSTP                                   | 	It is similar to SIGSTOP but the process receiving this signal is under no obligation to listen to it. The process may choose to ignore it.   |
+
+	 
+		
 
 
 ### What is a service?
