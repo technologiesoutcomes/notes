@@ -49,8 +49,8 @@ Foreground processes
 Background processes ( add & at the end of command)
 
 ### Signals
-1	SIGHUP  If a process is being run from a terminal and that terminal itself is closed/terminated then the process receives this signal and consequently terminates.
-2	SIGINT	It politely tells the program to terminate. Performs the same function as Ctrl+C. It’s up to the process whether it will listen to it or not.
+1)	SIGHUP  If a process is being run from a terminal and that terminal itself is closed/terminated then the process receives this signal and consequently terminates.
+2)	SIGINT	It politely tells the program to terminate. Performs the same function as Ctrl+C. It’s up to the process whether it will listen to it or not.
 9	SIGKILL	Unlike other signals, the SIGKILL signal is never sent to the process. Instead, the terminal immediately kills the program and the program doesn’t get the time to save its data or clean up its work. Only use this as a last resort.
 15	SIGTERM This is the default signal of the kill command
 18	SIGCONT	This will restore a process that was paused by a SIGSTOP or SIGTSTP signal
